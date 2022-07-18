@@ -1,12 +1,13 @@
 package initialize
 
 import (
+	"bunnymall/global"
 	"fmt"
+	"time"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
-	"imall/global"
-	"time"
 )
 
 // Mysql 配置MySQl数据库

@@ -1,11 +1,12 @@
 package api
 
 import (
+	"bunnymall/constant"
+	"bunnymall/models/web"
+	"bunnymall/response"
+	"bunnymall/service"
+
 	"github.com/gin-gonic/gin"
-	"imall/constant"
-	"imall/models/web"
-	"imall/response"
-	"imall/service"
 )
 
 type WebCategory struct {

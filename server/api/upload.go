@@ -1,9 +1,10 @@
 package api
 
 import (
+	"bunnymall/global"
+	"bunnymall/response"
+
 	"github.com/gin-gonic/gin"
-	"imall/global"
-	"imall/response"
 )
 
 type WebFileUpload struct {

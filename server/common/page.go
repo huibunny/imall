@@ -1,8 +1,8 @@
 package common
 
 import (
-	"imall/global"
-	"imall/models"
+	"bunnymall/global"
+	"bunnymall/models"
 )
 
 // RestPage 分页查询

@@ -1,10 +1,10 @@
 package service
 
 import (
-	"imall/common"
-	"imall/global"
-	"imall/models/app"
-	"imall/models/web"
+	"bunnymall/common"
+	"bunnymall/global"
+	"bunnymall/models/app"
+	"bunnymall/models/web"
 	"strconv"
 	"strings"
 )

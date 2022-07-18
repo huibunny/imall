@@ -1,9 +1,10 @@
 package middleware
 
 import (
+	"bunnymall/common"
+	"bunnymall/response"
+
 	"github.com/gin-gonic/gin"
-	"imall/common"
-	"imall/response"
 )
 
 // JwtAuth JWT认证中间件

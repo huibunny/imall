@@ -1,8 +1,8 @@
 package initialize
 
 import (
+	"bunnymall/global"
 	"fmt"
-	"imall/global"
 
 	"github.com/spf13/viper"
 )

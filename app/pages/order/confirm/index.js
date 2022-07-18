@@ -1,5 +1,5 @@
 // pages/order/confirm/index.js
-import http from '../../../utils/http'
+import http from '../../../util/http'
 
 Page({
 
@@ -25,11 +25,13 @@ Page({
       totalPrice: res.data.data.totalPrice
     })
     let totalGoodsCount = 0
-    for (let i = 0; i < this.data.goodsItem.length; i++) {
-      totalGoodsCount = totalGoodsCount + this.data.goodsItem[i].count
-      if (this.data.goodsItem[i].id == this.data.goodsId) {
-        this.setData({goodsCount: this.data.goodsItem[i].count})
-        console.log(this.data.goodsItem[i].count);
+    if (this.data.goodsItem != null) {
+      for (let i = 0; i < this.data.goodsItem.length; i++) {
+        totalGoodsCount = totalGoodsCount + this.data.goodsItem[i].count
+        if (this.data.goodsItem[i].id == this.data.goodsId) {
+          this.setData({goodsCount: this.data.goodsItem[i].count})
+          console.log(this.data.goodsItem[i].count);
+        }
       }
     }
     this.setData({totalGoodsCount: totalGoodsCount})

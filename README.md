@@ -1,8 +1,8 @@
-# imall
+# bunnymall
 
 ### 简介
 
-imall 是一个本地生活服务类商城，包括微信小程序、商家后台、服务端。
+bunnymall 是一个本地生活服务类商城，包括微信小程序、商家后台、服务端。
 
 ### 技术选型
 
@@ -24,7 +24,7 @@ imall 是一个本地生活服务类商城，包括微信小程序、商家后�
 
 ### 项目结构
 ```
-imall
+bunnymall
   ├── app         // 微信小程序
   ├── demo        // 演示资源
   ├── server      // 服务端
@@ -49,7 +49,7 @@ imall
 
 直接下载压缩包，或使用 Git 克隆项目：
 ```
-$ git clone https://github.com/zchengo/imall.git
+$ git clone https://github.com/zchengo/bunnymall.git
 ```
 
 **部署一：Go服务端（server）**
@@ -97,14 +97,14 @@ $ npm install
 
 | | | |
 |---|---|---|
-| ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/w1.png) | ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/w2.png) | ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/w3.png) |
-| ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/w4.png) | ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/w5.png) | ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/w6.png) |
+| ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/w1.png) | ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/w2.png) | ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/w3.png) |
+| ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/w4.png) | ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/w5.png) | ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/w6.png) |
 
 小程序商城：
 
 | | | | | | |
 |---|---|---|---|---|---|
-| ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/a1.png) | ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/a2.png) | ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/a3.png) | ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/a4.png) | ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/a5.png) | ![Not Found](https://github.com/zchengo/imall/blob/main/demo/res/a6.png) |
+| ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/a1.png) | ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/a2.png) | ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/a3.png) | ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/a4.png) | ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/a5.png) | ![Not Found](https://github.com/zchengo/bunnymall/blob/main/demo/res/a6.png) |
 
 说明：以上演示图片素材来源于网络，部分图标来源 [www.iconfont.cn](https://www.iconfont.cn) ，图片、图标仅供学习使用。
 
@@ -123,8 +123,8 @@ $ npm install
 
 使用微信扫描下方赞赏码，可以给作者打赏。
 
-<img width="200" height="200" src="https://github.com/zchengo/imall/blob/main/demo/rw/reward.jpg" />
+<img width="200" height="200" src="https://github.com/zchengo/bunnymall/blob/main/demo/rw/reward.jpg" />
 
 ### 许可证
 
-[MIT License](https://github.com/zchengo/imall/blob/main/LICENSE) Copyright (c) 2022 zchengo
+[MIT License](https://github.com/zchengo/bunnymall/blob/main/LICENSE) Copyright (c) 2022 zchengo

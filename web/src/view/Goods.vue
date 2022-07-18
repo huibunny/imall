@@ -121,7 +121,7 @@
         <el-form-item label="图片" prop="imageUrl">
           <el-input v-show="false" v-model="goods.imageUrl" />
           <el-upload
-              action="http://localhost:8000/web/upload"
+              action="http://localhost:8401/web/upload"
               :headers="{'token': token}"
               :limit="1"
               name="file"

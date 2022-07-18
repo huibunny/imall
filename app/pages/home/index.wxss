@@ -19,6 +19,10 @@ page {
   border-radius: 15rpx 15rpx 0 0;
 }
 
+.card-box {
+  bottom: 50rpx;
+}
+
 .custom-van-tab {
   font-size: 32rpx !important;
   flex: 1 !important;

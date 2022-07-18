@@ -1,6 +1,6 @@
 package main
 
-import "imall/initialize"
+import "bunnymall/initialize"
 
 func main() {
 	initialize.Run()

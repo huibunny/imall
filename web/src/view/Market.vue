@@ -107,7 +107,7 @@
         <el-form-item label="活动图片" prop="bannerImage">
           <el-input v-show="false" v-model="market.bannerImage"/>
           <el-upload
-              action="http://localhost:8000/web/upload"
+              action="http://localhost:8401/web/upload"
               :headers="{'token': token}"
               :limit="1"
               name="file"

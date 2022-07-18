@@ -1,5 +1,5 @@
 // pages/order/index.js
-import http from '../../utils/http'
+import http from '../../util/http'
 import Dialog from '@vant/weapp/dialog/dialog';
 
 Page({

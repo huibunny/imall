@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <transition :duration="{ enter: 800, leave: 100 }" name="el-fade-in-linear" mode="out-in">
-      <router-view />
-    </transition>
+    <router-view />
   </div>
 </template>
 

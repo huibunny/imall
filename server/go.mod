@@ -1,4 +1,4 @@
-module imall
+module bunnymall
 
 go 1.17
 

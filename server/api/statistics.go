@@ -1,10 +1,11 @@
 package api
 
 import (
+	"bunnymall/constant"
+	"bunnymall/response"
+	"bunnymall/service"
+
 	"github.com/gin-gonic/gin"
-	"imall/constant"
-	"imall/response"
-	"imall/service"
 )
 
 type WebStatistics struct {

@@ -1,5 +1,5 @@
 // pages/search/index.js
-import http from '../../utils/http'
+import http from '../../util/http'
 Page({
 
   // 页面的初始数据

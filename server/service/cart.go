@@ -1,8 +1,8 @@
 package service
 
 import (
-	"imall/global"
-	"imall/models/app"
+	"bunnymall/global"
+	"bunnymall/models/app"
 	"strconv"
 	"strings"
 )

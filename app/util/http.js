@@ -1,5 +1,5 @@
 // 通用请求路径basePath
-var basePath = 'http://localhost:8000/app'
+var basePath = 'http://localhost:8401/app'
 
 // 发送GET请求
 function GET(url, data = {}){

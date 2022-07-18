@@ -1,5 +1,5 @@
 // pages/goods/index.js
-import http from '../../utils/http'
+import http from '../../util/http'
 Page({
 
   // 页面的初始数据
@@ -30,13 +30,25 @@ Page({
 
   // 增加商品数量
   addGoods() {
-    this.setData({goodsCount: 1})
+    let totalPrice = this.data.goods.price
+    this.setData({
+      goodsCount: 1,
+      totalPrice,
+    }, () => {
+      this.addToCart()
+    })
   },
 
   // 当进步器改变时，修改商品数量
   stepperChange(event){
-    this.setData({goodsCount: event.detail})
-    this.addToCart()
+    let goodsCount = event.detail
+    let totalPrice = this.data.goods.price * goodsCount
+    this.setData({
+      goodsCount,
+      totalPrice,
+    }, () => {
+      this.addToCart()
+    })
   },
 
   // 添加商品到购物车
@@ -65,14 +77,17 @@ Page({
     this.setData({
       goodsItem: res.data.data.cartItem,
       totalPrice: res.data.data.totalPrice,
-      goodsCount: this.data.goodsItem[this.data.goodsId]
+      goodsCount: this.data.goodsItem != null ? this.data.goodsItem[this.data.goodsId] : 0
     })
     let totalGoodsCount = 0
-    for (let i = 0; i < this.data.goodsItem.length; i++) {
-      totalGoodsCount = totalGoodsCount + this.data.goodsItem[i].count
-      if (this.data.goodsItem[i].id == this.data.goodsId) {
-        this.setData({goodsCount: this.data.goodsItem[i].count})
-        console.log(this.data.goodsItem[i].count);
+    if (this.data.goodsItem != null) {
+
+      for (let i = 0; i < this.data.goodsItem.length; i++) {
+        totalGoodsCount = totalGoodsCount + this.data.goodsItem[i].count
+        if (this.data.goodsItem[i].id == this.data.goodsId) {
+          this.setData({goodsCount: this.data.goodsItem[i].count})
+          console.log(this.data.goodsItem[i].count);
+        }
       }
     }
     this.setData({totalGoodsCount: totalGoodsCount})

@@ -1,13 +1,14 @@
 package api
 
 import (
+	"bunnymall/constant"
+	"bunnymall/models/app"
+	"bunnymall/models/web"
+	"bunnymall/response"
+	"bunnymall/service"
 	"fmt"
+
 	"github.com/gin-gonic/gin"
-	"imall/constant"
-	"imall/models/app"
-	"imall/models/web"
-	"imall/response"
-	"imall/service"
 )
 
 type WebOrder struct {

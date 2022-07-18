@@ -1,9 +1,9 @@
 package service
 
 import (
-	"imall/common"
-	"imall/global"
-	"imall/models/web"
+	"bunnymall/common"
+	"bunnymall/global"
+	"bunnymall/models/web"
 	"time"
 )
 

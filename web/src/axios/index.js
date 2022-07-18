@@ -1,8 +1,8 @@
 import axios from "axios";
-import router from '../router/index';
 import { ElMessage } from 'element-plus';
 
-axios.defaults.baseURL = "http://localhost:8000/web";
+// axios.defaults.baseURL = "http://localhost:8401/web";
+axios.defaults.baseURL = '/api';
 
 const request = axios.create({
     timeout: 5000,
@@ -27,7 +27,6 @@ request.interceptors.response.use(response => {
     }
 },error => {
     console.log(error)
-    router.push('/404');
     return Promise.reject(error)
 })
 

@@ -1,11 +1,12 @@
 package api
 
 import (
+	"bunnymall/constant"
+	"bunnymall/models/app"
+	"bunnymall/response"
+	"bunnymall/service"
 	"fmt"
-	"imall/constant"
-	"imall/models/app"
-	"imall/response"
-	"imall/service"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -25,7 +26,7 @@ func (c *AppCart) AddCart(context *gin.Context) {
 		return
 	}
 	added := c.Add(param)
-	if added > 0 {
+	if added >= 0 {
 		response.Success(constant.Created, nil, context)
 		return
 	}
@@ -69,6 +70,7 @@ func (c *AppCart) GetCartInfo(context *gin.Context) {
 	info := c.GetInfo(param)
 	if len(info.CartItem) == 0 {
 		response.Success("购物车竟然是空的", info, context)
+	} else {
+		response.Success("查询成功", info, context)
 	}
-	response.Success("查询成功", info, context)
 }

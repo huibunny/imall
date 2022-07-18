@@ -1,5 +1,5 @@
 import { areaList } from '@vant/area-data';
-import http from '../../../utils/http'
+import http from '../../../util/http'
 
 Page({
 

@@ -1,10 +1,11 @@
 package global
 
 import (
+	"bunnymall/config"
+
 	"github.com/go-redis/redis/v8"
 	"github.com/olivere/elastic/v7"
 	"gorm.io/gorm"
-	"imall/config"
 )
 
 var (

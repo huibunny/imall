@@ -4,6 +4,7 @@ package config
 type Config struct {
 	Server       Server       `mapstructure:"server"`
 	Mysql        Mysql        `mapstructure:"mysql"`
+	Redis        Redis        `mapstructure:"redis"`
 	Upload       Upload       `mapstructure:"upload"`
 	Jwt          Jwt          `mapstructure:"jwt"`
 	Code2Session Code2Session `mapstructure:"code2Session"`
@@ -20,6 +21,13 @@ type Mysql struct {
 	Username string `mapstructure:"username"`
 	Password string `mapstructure:"password"`
 	Url      string `mapstructure:"url"`
+}
+
+// Redis数据源配置
+type Redis struct {
+	Addr     string `mapstructure:"addr"`
+	Password string `mapstructure:"password"`
+	Db       int    `mapstructure:"db"`
 }
 
 // 文件上传相关路径配置

@@ -1,4 +1,4 @@
-import http from '../../utils/http'
+import http from '../../util/http'
 
 Page({
 
@@ -92,16 +92,19 @@ Page({
     this.setData({
       goodsItem: res.data.data.cartItem,
       totalPrice: res.data.data.totalPrice,
-      goodsCount: this.data.goodsItem[this.data.goodsId]
+      goodsCount: this.data.goodsItem != null ? this.data.goodsItem[this.data.goodsId] : 0
     })
     let totalGoodsCount = 0
     let checkedGoods = []
-    for (let i = 0; i < this.data.goodsItem.length; i++) {
-      totalGoodsCount = totalGoodsCount + this.data.goodsItem[i].count
-      checkedGoods.push(this.data.goodsItem[i].id)
-      if (this.data.goodsItem[i].id == this.data.goodsId) {
-        this.setData({goodsCount: this.data.goodsItem[i].count})
-        console.log(this.data.goodsItem[i].count);
+    if (this.data.goodsItem != null) {
+      
+      for (let i = 0; i < this.data.goodsItem.length; i++) {
+        totalGoodsCount = totalGoodsCount + this.data.goodsItem[i].count
+        checkedGoods.push(this.data.goodsItem[i].id)
+        if (this.data.goodsItem[i].id == this.data.goodsId) {
+          this.setData({goodsCount: this.data.goodsItem[i].count})
+          console.log(this.data.goodsItem[i].count);
+        }
       }
     }
     this.setData({totalGoodsCount: totalGoodsCount})
@@ -114,6 +117,42 @@ Page({
       openId: wx.getStorageSync('openId')
     })
     this.setData({ show: false, totalGoodsCount: 0, totalPrice: 0 });
+  },
+
+  // 添加商品到购物车
+  async addToCart(goods) {
+    await http.POST('/cart/add',{ 
+      goodsId: goods.id, 
+      goodsCount: goods.count,
+      openId: wx.getStorageSync('openId')
+    })
+  },
+
+  stepperChange (event) {
+    let newItemCount = event.detail
+    let index = event.target.dataset.index
+    let goodsItem = this.data.goodsItem
+    let selectedGoodsItem = goodsItem[index]
+    let itemCount = selectedGoodsItem.count
+    let itemPrice = selectedGoodsItem.price
+    let totalGoodsCount = this.data.totalGoodsCount
+    let totalPrice = this.data.totalPrice
+    let changeCount = newItemCount - itemCount
+
+    if (selectedGoodsItem.count == newItemCount) {
+    } else {
+      totalGoodsCount += changeCount
+      totalPrice += changeCount * itemPrice
+      selectedGoodsItem.count = newItemCount
+    
+      this.setData({
+        totalPrice,
+        totalGoodsCount,
+        goodsItem,
+      })
+  
+      this.addToCart(selectedGoodsItem)
+    }
   },
 
   // 点击结算

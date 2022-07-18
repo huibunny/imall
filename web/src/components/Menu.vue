@@ -77,4 +77,7 @@ export default {
   min-width: 105px !important;
   max-height: 50px !important;
 }
+.el-menu-item.is-active{
+  /*background-color: #409EFF !important;*/
+}
 </style>

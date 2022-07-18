@@ -1,10 +1,10 @@
 package service
 
 import (
-	"imall/common"
-	"imall/global"
-	"imall/models/app"
-	"imall/models/web"
+	"bunnymall/common"
+	"bunnymall/global"
+	"bunnymall/models/app"
+	"bunnymall/models/web"
 	"strings"
 )
 
@@ -78,7 +78,7 @@ func (g *AppGoodsService) GetList(param app.GoodsQueryParam) []app.GoodsList {
 	// 查询分类列表
 	categoryList := make([]app.Category, 0)
 	cids := make([]uint64, 0)
-    global.Db.Table("category").Where("parent_id = ?", param.CategoryId).Find(&categoryList)
+	global.Db.Table("category").Where("parent_id = ?", param.CategoryId).Find(&categoryList)
 	for _, c := range categoryList {
 		cids = append(cids, c.Id)
 	}

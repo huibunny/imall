@@ -1,6 +1,6 @@
 package web
 
-import "imall/models"
+import "bunnymall/models"
 
 // 数据库，订单数据映射模型
 type Order struct {
@@ -17,13 +17,13 @@ type Order struct {
 
 // 订单删除参数模型
 type OrderDeleteParam struct {
-	Id uint64 `form:"id" binding:"required,gt=0"`
+	Id uint64 `form:"id"`
 }
 
 // 订单更新参数模型
 type OrderUpdateParam struct {
-	Id     uint64 `json:"id" binding:"required,gt=0"`
-	Status int    `json:"status" binding:"required,gt=0"`
+	Id     uint64 `json:"id"`
+	Status int    `json:"status"`
 }
 
 // 订单列表查询参数模型
