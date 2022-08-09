@@ -14,16 +14,18 @@ type Market struct {
 	Status      int    `gorm:"status"`       // 状态，1-开启，2-关闭
 	Created     string `gorm:"created"`      // 创建时间
 	Updated     string `gorm:"updated"`      // 更新时间
+	Sid         uint64 `gorm:"sid"`          // 店铺编号
 }
 
 // 营销创建参数模型
 type MarketCreateParam struct {
-	Name        string `json:"name"`
-	Type        int    `json:"type"`
-	BannerImage string `json:"bannerImage"`
-	BeginTime   string `json:"beginTime"`
-	OverTime    string `json:"overTime"`
-	GoodsIds    string `json:"goodsIds"`
+	Name        string `json:"name" binding:"required"`
+	Type        int    `json:"type" binding:"required,gt=0"`
+	BannerImage string `json:"bannerImage" binding:"required"`
+	BeginTime   string `json:"beginTime" binding:"required"`
+	OverTime    string `json:"overTime" binding:"required"`
+	GoodsIds    string `json:"goodsIds" binding:"required"`
+	Sid         uint64 `json:"sid" binding:"required,gt=0"`
 }
 
 // 营销删除参数模型
@@ -55,6 +57,7 @@ type MarketQueryParam struct {
 	Id     uint64 `form:"id"`
 	Type   int    `form:"type"`
 	Status int    `form:"status"`
+	Sid    uint64 `form:"sid" binding:"required,gt=0"`
 }
 
 // 营销商品传输模型

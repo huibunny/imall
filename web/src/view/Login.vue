@@ -37,6 +37,14 @@
         </el-form-item>
       </el-form>
     </div>
+
+    <div class="footer">
+      <div>MIT License Copyright (c) 2022 zchengo</div>
+      <div><el-divider direction="vertical" /></div>
+      <a href="https://github.com/huibunny/bunnymall">Github</a>
+      <div><el-divider direction="vertical" /></div>
+      <a href="#">About</a>
+    </div>
   </div>
 </template>
 
@@ -49,20 +57,6 @@ export default {
     return {User, Lock, CircleCheck}
   },
   data() {
-    const validateUsercode = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入账号'));
-      } else {
-        callback();
-      }
-    };
-    const validatePassword = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入密码'));
-      } else {
-        callback();
-      }
-    };
     return {
       show: true,
       loginForm: {
@@ -74,10 +68,10 @@ export default {
       captchaImg: null,
       rules: {
         username: [
-          {validator: validateUsercode, trigger: 'blur'}
+          {equired: true, message: '请输入账号', trigger: 'blur'}
         ],
         password: [
-          {validator: validatePassword, trigger: 'blur'}
+          {equired: true, message: '请输入密码', trigger: 'blur'}
         ],
         captchaValue: [
           {required: true, message: '请输入验证码', trigger: 'blur'},
@@ -105,7 +99,7 @@ export default {
             captchaValue: this.loginForm.captchaValue,
           }).then((response) => {
             localStorage.setItem("token", response.data.data.token)
-            localStorage.setItem("uid", response.data.data.uid)
+            localStorage.setItem("sid", response.data.data.sid)
             ElMessage({ message: '欢迎回来', type: 'success'})
             this.$router.push('/home');
           }).catch((error) => {
@@ -136,8 +130,8 @@ export default {
   background-image: url("../assets/back.png");
   background-size: 100% 60%;
   background-repeat: no-repeat;
-  opacity: 0.8;
-  background-color: #e8ecf1;
+  /* background-color: #e8ecf1; */
+  background-color: #F5F7FA;
 }
 .form {
   width: 25%;
@@ -163,5 +157,25 @@ export default {
 .button {
   width: 100%;
   margin-top: 5px;
+}
+
+.footer{
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #606266;
+  font-size: 10px;
+}
+
+.footer a{
+  color: #606266;
+}
+.footer a:hover{
+  color: #2d2d2f;
+  transition: 0.5s;
 }
 </style>

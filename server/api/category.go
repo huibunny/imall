@@ -2,6 +2,7 @@ package api
 
 import (
 	"bunnymall/constant"
+	"bunnymall/models/app"
 	"bunnymall/models/web"
 	"bunnymall/response"
 	"bunnymall/service"
@@ -80,6 +81,11 @@ func (c *WebCategory) GetCategoryOption(context *gin.Context) {
 }
 
 func (c *AppCategory) GetCategoryOption(context *gin.Context) {
-	option := c.GetOption()
+	var param app.CategoryQueryParam
+	if err := context.ShouldBind(&param); err != nil {
+		response.Failed(constant.ParamInvalid, context)
+		return
+	}
+	option := c.GetOption(param)
 	response.Success(constant.Selected, option, context)
 }

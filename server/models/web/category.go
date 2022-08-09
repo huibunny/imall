@@ -9,14 +9,16 @@ type Category struct {
 	Sort     uint   `gorm:"sort"`       // 类目排序
 	Created  string `gorm:"created"`    // 创建时间
 	Updated  string `gorm:"updated"`    // 更新时间
+	Sid      uint64 `gorm:"sid"`        // 店铺编号
 }
 
 // 商品类目创建参数模型
 type CategoryCreateParam struct {
-	Name     string `json:"name"`
-	ParentId uint64 `json:"parentId"`
-	Level    uint   `json:"level"`
-	Sort     uint   `json:"sort"`
+	Name     string `json:"name" binding:"required"`
+	ParentId uint64 `json:"parentId" binding:"required,gt=0"`
+	Level    uint   `json:"level" binding:"required,gt=0"`
+	Sort     uint   `json:"sort" binding:"required,gt=0"`
+	Sid      uint64 `json:"sid" binding:"required,gt=0"`
 }
 
 // 商品类目删除参数模型
@@ -35,6 +37,7 @@ type CategoryUpdateParam struct {
 type CategoryQueryParam struct {
 	Name     string `form:"name"`
 	ParentId uint64 `form:"parentId"`
+	Sid      uint64 `form:"sid" binding:"required,gt=0"`
 }
 
 // 商品类目列表传输模型

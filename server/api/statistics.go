@@ -2,8 +2,10 @@ package api
 
 import (
 	"bunnymall/constant"
+	"bunnymall/models/web"
 	"bunnymall/response"
 	"bunnymall/service"
+	"fmt"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,12 +18,33 @@ func GetWebStatistics() *WebStatistics {
 	return &WebStatistics{}
 }
 
-func (s *WebStatistics) GetOrderData(context *gin.Context) {
-	orderData := s.OrderData()
-	response.Success(constant.Selected, orderData, context)
+func (s *WebStatistics) GetTodayData(c *gin.Context) {
+	var param web.DataParam
+	if err := c.ShouldBind(&param); err != nil {
+		fmt.Println(err)
+		response.Failed(constant.ParamInvalid, c)
+		return
+	}
+	todayData := s.TodayData(param)
+	response.Success(constant.Selected, todayData, c)
 }
 
-func (s *WebStatistics) GetWeekData(context *gin.Context) {
-	weekData := s.WeekData()
-	response.Success(constant.Selected, weekData, context)
+func (s *WebStatistics) GetOrderData(c *gin.Context) {
+	var param web.DataParam
+	if err := c.ShouldBind(&param); err != nil {
+		response.Failed(constant.ParamInvalid, c)
+		return
+	}
+	orderData := s.OrderData(param)
+	response.Success(constant.Selected, orderData, c)
+}
+
+func (s *WebStatistics) GetShopData(c *gin.Context) {
+	var param web.DataParam
+	if err := c.ShouldBind(&param); err != nil {
+		response.Failed(constant.ParamInvalid, c)
+		return
+	}
+	shopData := s.ShopData(param)
+	response.Success(constant.Selected, shopData, c)
 }

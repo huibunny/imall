@@ -2,6 +2,7 @@ package api
 
 import (
 	"bunnymall/constant"
+	"bunnymall/models/app"
 	"bunnymall/models/web"
 	"bunnymall/response"
 	"bunnymall/service"
@@ -98,6 +99,11 @@ func (m *WebMarket) GetMarketGoods(context *gin.Context) {
 }
 
 func (m *AppMarket) GetBanners(context *gin.Context) {
-	bannerList := m.GetBannerList()
+	var param app.BannerQueryParam
+	if err := context.ShouldBind(&param); err != nil {
+		response.Failed(constant.ParamInvalid, context)
+		return
+	}
+	bannerList := m.GetBannerList(param)
 	response.Success(constant.Selected, bannerList, context)
 }

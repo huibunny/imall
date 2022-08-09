@@ -7,6 +7,7 @@ type Config struct {
 	Redis        Redis        `mapstructure:"redis"`
 	Upload       Upload       `mapstructure:"upload"`
 	Jwt          Jwt          `mapstructure:"jwt"`
+	Cron         Cron         `mapstructure:"cron"`
 	Code2Session Code2Session `mapstructure:"code2Session"`
 	Feedback     Feedback     `mapstructure:"feedback"`
 }
@@ -39,6 +40,11 @@ type Upload struct {
 // 用户认证配置
 type Jwt struct {
 	SigningKey string `mapstructure:"signingKey"`
+}
+
+// 定时任务配置
+type Cron struct {
+	Enable bool `mapstructure:"enable"`
 }
 
 // 微信小程序相关配置
