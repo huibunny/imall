@@ -1,10 +1,9 @@
 package service
 
 import (
-	"bunnymall/common"
-	"bunnymall/global"
-	"bunnymall/models/web"
-
+	"mall/common"
+	"mall/global"
+	"mall/models/web"
 	"strconv"
 	"time"
 )
